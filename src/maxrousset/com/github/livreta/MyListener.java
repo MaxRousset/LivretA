@@ -33,7 +33,7 @@ public class MyListener implements Listener
 				int res = money.compareTo(moneyMax);/* Compare l argent du joueur a la somme max*/
 
 				/* Si le joueur n est pas nouveau + a moin de 100 000$ + ne s est pas co aujourdhui*/
-				if(player.hasPlayedBefore()/* && res == -1 && !date.toString().equals(new Date(System.currentTimeMillis()).toString())*/){
+				if(player.hasPlayedBefore() && res == -1 && !date.toString().equals(new Date(System.currentTimeMillis()).toString())){
 
 					BigDecimal interet = money.multiply(tauxInteret).divide(new BigDecimal(100d));/* calcult des interets */
 
