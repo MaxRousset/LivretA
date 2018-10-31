@@ -1,1 +1,6 @@
 # LivretA
+
+
+## Compilation
+
+* ant make

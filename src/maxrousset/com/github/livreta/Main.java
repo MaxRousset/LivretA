@@ -7,13 +7,21 @@ public class Main extends JavaPlugin {
 
     @Override
     public void onEnable() {
-      getLogger().info("onEnable is called!");
+      loadConfiguration();
+      System.out.print("[LivretA] LivretA Enabled!");
       getServer().getPluginManager().registerEvents(new MyListener(), this);
     }
 
     @Override
     public void onDisable() {
-      getLogger().info("onDisable is called!");
+      System.out.print("[LivretA] LivretA Disabled!");
+    }
+
+    public void loadConfiguration(){
+    //See "Creating you're defaults"
+    getConfig().options().copyDefaults(true); // NOTE: You do not have to use "" if the class extends the java plugin
+    //Save the config whenever you manipulate it
+    saveConfig();
     }
 
 }
