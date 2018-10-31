@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="LivretA" default="make" basedir=".">
+  <!-- Definition des proprietes du projet -->
+  <property name="projet.sources.dir" value="src"/>
+  <property name="projet.bin.dir" value="bin"/>
+  <property name="projet.lib.dir" value="lib"/>
+  <!-- Definition du classpath du projet -->
+  <path id="projet.classpath">
+    <fileset dir="${projet.lib.dir}">
+      <include name="*.jar"/>
+    </fileset>
+    <pathelement location="${projet.bin.dir}"/>
+  </path>
+
+  <!-- Clean old compiled class and jar -->
+  <target name="clean">
+    <delete>
+      <fileset dir="${projet.bin.dir}"/>
+      <fileset dir="${basedir}\target"/>
+    </delete>
+    <echo message="Clean done"/>
+  </target>
+
+  <!-- Compil project classes -->
+  <target name="compil" depends="clean">
+    <javac srcdir="${projet.sources.dir}" destdir="${projet.bin.dir}">
+      <classpath refid="projet.classpath"/>
+    </javac>
+    <echo message="Compile done"/>
+  </target>
+
+  <!-- Make jar -->
+  <target name="make" depends="compil">
+    <mkdir dir="target"></mkdir>
+    <jar destfile="target/${ant.project.name}.jar">
+        <fileset dir="bin"></fileset>
+        <fileset file="plugin.yml"></fileset>
+    </jar>
+    <echo message="Make jar done"/>
+  </target>
+
+
+
+</project>

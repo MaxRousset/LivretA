@@ -1,0 +1,12 @@
+main: maxrousset.com.github.livreta.Main
+name: LivretA
+version: 1.0
+author: maxrousset
+description: Livret A
+commands:
+  mycommand:
+    description: An example command
+    usage: /mycommand
+    permission: myplugin.mycommand
+    permission-message: You don't have the myplugin.mycommand permission.
+
