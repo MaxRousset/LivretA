@@ -1,10 +1,10 @@
 # LivretA
 
-## Depend de :
+## Dependance :
 * Vault
 * Authme
 * Spigot
 
-## Compilation
+## Compilation :
 
 * Lancer la compilation avec : mvn clean package
