@@ -7,6 +7,4 @@
 
 ## Compilation
 
-* Rajouter les jar de spigot, vault et authme dans un dossier lib
-
-* Lancer la compilation avec ant : ant make
+* Lancer la compilation avec : mvn clean package

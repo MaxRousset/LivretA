@@ -3,3 +3,4 @@ name: LivretA
 version: 1.0
 author: maxrousset
 description: Livret A
+depend: [Vault]
