@@ -8,8 +8,8 @@ public class Main extends JavaPlugin {
     @Override
     public void onEnable() {
       loadConfiguration();
-      System.out.print("[LivretA] LivretA Enabled!");
       getServer().getPluginManager().registerEvents(new MyListener(), this);
+      System.out.print("[LivretA] LivretA Enabled!");
     }
 
     @Override

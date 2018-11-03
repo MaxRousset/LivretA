@@ -19,6 +19,9 @@ public class MyListener implements Listener
 {
 
 	public MyListener(){}
+		BigDecimal moneyMax = new BigDecimal(JavaPlugin.getPlugin(Main.class).getConfig().getInt("Conf.MontantMax"));  /* Recupere le montant max dans la conf */
+		BigDecimal tauxInteret = new BigDecimal(JavaPlugin.getPlugin(Main.class).getConfig().getInt("Conf.TauxInteret")); /* Recupere le taux d interet dans la conf */
+
 		@EventHandler
 		/* Detecte quand un joueur se login en utilisant authme */
 		public void onJoin(fr.xephi.authme.events.LoginEvent event){
@@ -27,22 +30,14 @@ public class MyListener implements Listener
 			try {
 				Date date = new Date(player.getLastPlayed()); /* Recupere le jour de dernier co du joueur*/
 				BigDecimal money = Economy.getMoneyExact(player.getName() ); /* Recupere l argent du joueur*/
-				BigDecimal moneyMax = new BigDecimal(JavaPlugin.getPlugin(Main.class).getConfig().getInt("Conf.MontantMax"));  /* Recupere le montant max dans la conf */
-				BigDecimal tauxInteret = new BigDecimal(JavaPlugin.getPlugin(Main.class).getConfig().getInt("Conf.TauxInteret")); /* Recupere le taux d interet dans la conf */
-
 				int res = money.compareTo(moneyMax);/* Compare l argent du joueur a la somme max*/
 
 				/* Si le joueur n est pas nouveau + a moin de 100 000$ + ne s est pas co aujourdhui*/
 				if(player.hasPlayedBefore() && res == -1 && !date.toString().equals(new Date(System.currentTimeMillis()).toString())){
-
-					BigDecimal interet = money.multiply(tauxInteret).divide(new BigDecimal(100d));/* calcult des interets */
-
+					BigDecimal interet = money.multiply(tauxInteret).divide(new BigDecimal(100d));/* Calcul des interets */
 					Economy.setMoney(player.getName(),money.add(interet));/* Rajoute interet a money du joueur*/
-
-					/* Message destiné au joueur*/
-					player.sendMessage("§aDurant votre absence votre compte a rapporté "+Math.round(interet.floatValue())+"$ d'intérêts");
+					player.sendMessage("§aDurant votre absence votre compte a rapporté "+Math.round(interet.floatValue())+"$ d'intérêts");/* Message destiné au joueur*/
 				}
-
 				else {
 				}
 			}
