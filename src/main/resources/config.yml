@@ -3,3 +3,4 @@
 Conf:
   TauxInteret: 1
   MontantMax: 100000
+  Msg: "§aDurant votre absence votre compte a rapporté "

@@ -20,6 +20,7 @@ public class MyListener implements Listener
 		private static Economy econ = rsp.getProvider();
 		Double moneyMax = new Double(JavaPlugin.getPlugin(Main.class).getConfig().getInt("Conf.MontantMax"));  /* Recupere le montant max dans la conf */
 		Double tauxInteret = new Double(JavaPlugin.getPlugin(Main.class).getConfig().getInt("Conf.TauxInteret")); /* Recupere le taux d interet dans la conf */
+		String message = new String(JavaPlugin.getPlugin(Main.class).getConfig().getString("Conf.Msg")); /* Recupere le taux d interet dans la conf */
 
 		@EventHandler
 		/* Detecte quand un joueur se login en utilisant authme */
@@ -33,7 +34,7 @@ public class MyListener implements Listener
 			if(player.hasPlayedBefore() && res == -1 && !date.toString().equals(new Date(System.currentTimeMillis()).toString())){
 				Double interet = money*tauxInteret/new Double(100d);// Calcul des interets
 				econ.depositPlayer(player, interet); // Rajoute interet a money du joueur
-				player.sendMessage("§aDurant votre absence votre compte a rapporté "+Math.round(interet.floatValue())+"$ d'intérêts");/* Message destiné au joueur*/
+				player.sendMessage(message+Math.round(interet.floatValue())+"$ d'intérêts");/* Message destiné au joueur*/
 			}
 			else {}
 			}
