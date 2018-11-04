@@ -24,7 +24,7 @@ public class MyListener implements Listener
 
 			@EventHandler
 			/* Check for user login with authme */
-			public void onJoin(fr.xephi.authme.events.LoginEvent event){
+			public void onJoin(LoginEvent event){
 				Player player = event.getPlayer(); // Get player name
 				Date date = new Date(player.getLastPlayed()); // Get last played time of player
 				Double money = econ.getBalance(player); // Get money of player
