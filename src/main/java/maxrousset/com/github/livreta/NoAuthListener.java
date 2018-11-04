@@ -7,15 +7,14 @@ import org.bukkit.plugin.java.JavaPlugin;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
+import org.bukkit.event.player.PlayerJoinEvent;
 
 import net.milkbowl.vault.economy.Economy;
 
-import fr.xephi.authme.events.LoginEvent;
-
-public class MyListener implements Listener
+public class NoAuthListener implements Listener
 {
 
-	public MyListener(){}
+	public NoAuthListener(){}
 		private static RegisteredServiceProvider<Economy> rsp = JavaPlugin.getPlugin(Main.class).getServer().getServicesManager().getRegistration(Economy.class);
 		private static Economy econ = rsp.getProvider();
 		Double moneyMax = new Double(JavaPlugin.getPlugin(Main.class).getConfig().getInt("Conf.MontantMax"));  /* Recupere le montant max dans la conf */
@@ -24,7 +23,7 @@ public class MyListener implements Listener
 
 			@EventHandler
 			/* Detecte quand un joueur se login en utilisant authme */
-			public void onJoin(fr.xephi.authme.events.LoginEvent event){
+			public void onPlayerJoin(PlayerJoinEvent event){
 				Player player = event.getPlayer(); // Recupere le pseudo du joueur
 				Date date = new Date(player.getLastPlayed()); // Recupere le jour de dernier co du joueur
 				Double money = econ.getBalance(player); // Recupere l argent du joueur

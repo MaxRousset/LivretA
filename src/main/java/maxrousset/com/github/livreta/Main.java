@@ -23,10 +23,19 @@ public class Main extends JavaPlugin {
           return;
       }
 
+      // Check for authme
+      if (!setupAuthme() ) {
+        loadConfiguration();
+        getServer().getPluginManager().registerEvents(new NoAuthListener(), this);
+
+        System.out.print(ANSI_GREEN + "[LivretA] LivretA Enabled!" + ANSI_RESET);
+      }
+      else{
       loadConfiguration();
       getServer().getPluginManager().registerEvents(new MyListener(), this);
 
-      System.out.print(ANSI_GREEN + "[LivretA] LivretA Enabled!" + ANSI_RESET);
+      System.out.print(ANSI_GREEN + "[LivretA] LivretA Enabled With Authme Integration !" + ANSI_RESET);
+      }
     }
 
     @Override
@@ -50,6 +59,13 @@ public class Main extends JavaPlugin {
           return false;
       }
       econ = rsp.getProvider();
+      return econ != null;
+    }
+
+    private boolean setupAuthme() {
+      if (getServer().getPluginManager().getPlugin("AuthMe") == null) {
+          return false;
+      }
       return econ != null;
     }
 
