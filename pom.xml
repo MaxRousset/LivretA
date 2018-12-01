@@ -11,10 +11,10 @@
       <url>https://hub.spigotmc.org/nexus/content/repositories/snapshots/</url>
     </repository>
     <!--Vault repo-->
-    <repository>
-      <id>vault-repo</id>
-      <url>https://mvnrepository.com/artifact/net.milkbowl.vault/VaultAPI</url>
-    </repository>
+  <repository>
+    <id>vault-repo</id>
+    <url>http://nexus.hc.to/content/repositories/pub_releases</url>
+  </repository>
     <!--Authme repo-->
     <repository>
     	<id>codemc-repo</id>
