@@ -1,23 +1,23 @@
-# LivretA
+# SavingsAccount
 
-Plugin de livret a pour Spigot
+Saving Account plugin for spigot
 
-## Fonctionnalité:
-Donne au joueurs un pourcentage de leur solde d'argent chaque jour.
+## Functionality:
 
-* Taux d intérêt réglable
+Gives a certain amount of money to the player every day of connection
 
-* Somme maximum pour toucher des intérêt réglable
+* Adjustable interest rate
 
-* Message réglable
+* Max money to have interest adjustable 
 
-* Intégrer a Authme si il est présent
+* Message adjustable
 
-## Dépendance :
+* Integrated with Authme if present
+
+## Dependency :
 
 * Vault
-* Spigot
 
 ## Compilation :
 
-* Lancer la compilation avec : mvn clean package
+* Launch compilation with : mvn clean package
