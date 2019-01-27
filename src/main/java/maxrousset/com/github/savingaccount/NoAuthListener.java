@@ -1,4 +1,4 @@
-package maxrousset.com.github.livreta;
+package maxrousset.com.github.savingaccount;
 
 import java.sql.Date;
 

@@ -1,6 +1,6 @@
-main: maxrousset.com.github.livreta.Main
-name: LivretA
+main: maxrousset.com.github.savingaccount.Main
+name: SavingAccount
 version: 1.1
 author: maxrousset
-description: Livret A
+description: SavingAccount
 depend: [Vault]

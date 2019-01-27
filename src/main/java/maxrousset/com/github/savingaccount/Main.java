@@ -1,4 +1,4 @@
-package maxrousset.com.github.livreta;
+package maxrousset.com.github.savingaccount;
 
 import org.bukkit.plugin.java.JavaPlugin;
 import org.bukkit.plugin.RegisteredServiceProvider;
@@ -28,19 +28,19 @@ public class Main extends JavaPlugin {
         loadConfiguration();
         getServer().getPluginManager().registerEvents(new NoAuthListener(), this);
 
-        System.out.print(ANSI_GREEN + "[LivretA] LivretA Enabled!" + ANSI_RESET);
+        System.out.print(ANSI_GREEN + "[SavingAccount] SavingAccount Enabled!" + ANSI_RESET);
       }
       else{
       loadConfiguration();
       getServer().getPluginManager().registerEvents(new MyListener(), this);
 
-      System.out.print(ANSI_GREEN + "[LivretA] LivretA Enabled With Authme Integration !" + ANSI_RESET);
+      System.out.print(ANSI_GREEN + "[SavingAccount] SavingAccount Enabled With Authme Integration !" + ANSI_RESET);
       }
     }
 
     @Override
     public void onDisable() {
-      System.out.print(ANSI_GREEN + "[LivretA] LivretA Disabled!" + ANSI_RESET);
+      System.out.print(ANSI_GREEN + "[SavingAccount] SavingAccount Disabled!" + ANSI_RESET);
     }
 
     public void loadConfiguration(){
