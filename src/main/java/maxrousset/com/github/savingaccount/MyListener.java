@@ -18,8 +18,8 @@ public class MyListener implements Listener
 	public MyListener(){}
 		private static RegisteredServiceProvider<Economy> rsp = JavaPlugin.getPlugin(Main.class).getServer().getServicesManager().getRegistration(Economy.class);
 		private static Economy econ = rsp.getProvider();
-		Double moneyMax = new Double(JavaPlugin.getPlugin(Main.class).getConfig().getInt("Conf.MontantMax"));  // Get max money from conf
-		Double tauxInteret = new Double(JavaPlugin.getPlugin(Main.class).getConfig().getInt("Conf.TauxInteret")); // Get Interest rate from conf
+		Double moneyMax = new Double(JavaPlugin.getPlugin(Main.class).getConfig().getInt("Conf.MaxAmount"));  // Get max money from conf
+		Double tauxInteret = new Double(JavaPlugin.getPlugin(Main.class).getConfig().getInt("Conf.InterestRate")); // Get Interest rate from conf
 		String message = new String(JavaPlugin.getPlugin(Main.class).getConfig().getString("Conf.Msg")); // Get message
 
 			@EventHandler
@@ -33,7 +33,7 @@ public class MyListener implements Listener
 				if(player.hasPlayedBefore() && res == -1 && !date.toString().equals(new Date(System.currentTimeMillis()).toString())){
 					Double interet = money*tauxInteret/new Double(100d);//Calculate interest
 					econ.depositPlayer(player, interet);// Add interest to player money
-					player.sendMessage(message+Math.round(interet.floatValue())+"$ d'intérêts");// Broadcast message to player
+					player.sendMessage(message+Math.round(interet.floatValue())+"$");// Broadcast message to player
 				}
 				else {}
 				}

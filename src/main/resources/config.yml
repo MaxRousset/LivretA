@@ -1,6 +1,7 @@
 #Conf file for SavingAccount plugin
 
 Conf:
-  TauxInteret: 1
-  MontantMax: 100000
-  Msg: "§aDurant votre absence votre compte a rapporté "
+
+  InterestRate: 1
+  MaxAmount: 100000
+  Msg: "§aDuring your absence your account has been credited with "

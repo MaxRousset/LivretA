@@ -17,8 +17,8 @@ public class NoAuthListener implements Listener
 	public NoAuthListener(){}
 		private static RegisteredServiceProvider<Economy> rsp = JavaPlugin.getPlugin(Main.class).getServer().getServicesManager().getRegistration(Economy.class);
 		private static Economy econ = rsp.getProvider();
-		Double moneyMax = new Double(JavaPlugin.getPlugin(Main.class).getConfig().getInt("Conf.MontantMax"));  /* Recupere le montant max dans la conf */
-		Double tauxInteret = new Double(JavaPlugin.getPlugin(Main.class).getConfig().getInt("Conf.TauxInteret")); /* Recupere le taux d interet dans la conf */
+		Double moneyMax = new Double(JavaPlugin.getPlugin(Main.class).getConfig().getInt("Conf.MaxAmount"));  /* Recupere le montant max dans la conf */
+		Double tauxInteret = new Double(JavaPlugin.getPlugin(Main.class).getConfig().getInt("Conf.InterestRate")); /* Recupere le taux d interet dans la conf */
 		String message = new String(JavaPlugin.getPlugin(Main.class).getConfig().getString("Conf.Msg")); /* Recupere le taux d interet dans la conf */
 
 			@EventHandler
@@ -32,7 +32,7 @@ public class NoAuthListener implements Listener
 				if(player.hasPlayedBefore() && res == -1 && !date.toString().equals(new Date(System.currentTimeMillis()).toString())){
 					Double interet = money*tauxInteret/new Double(100d);//Calculate interest
 					econ.depositPlayer(player, interet);// Add interest to player money
-					player.sendMessage(message+Math.round(interet.floatValue())+"$ d'intérêts");// Broadcast message to player
+					player.sendMessage(message+Math.round(interet.floatValue())+"$");// Broadcast message to player
 				}
 				else {}
 				}
